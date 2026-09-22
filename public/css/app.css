@@ -1,12 +1,12 @@
-﻿/*
+/*
 | Lapisan tema di atas Bootstrap.
 | Bootstrap dimuat lebih dulu, file ini hanya menimpa seperlunya.
 */
 
 :root {
-    --brand: #c2410c;
-    --brand-dark: #9a3412;
-    --brand-subtle: #fff7ed;
+    --brand: #30abca;
+    --brand-dark: #19555f;
+    --brand-subtle: #ffffff;
 }
 
 body {
@@ -255,4 +255,84 @@ code.inline {
     border-color: rgba(99, 102, 241, .4);
     color: #a5b4fc;
 }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f6fa;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #212529;
+    position: fixed;
+    left: 0;
+    top: 0;
+    color: white;
+}
+
+/* HEADER SIDEBAR */
+.sidebar-header {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* MENU */
+.sidebar-menu {
+    list-style: none;
+    padding: 15px 10px;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 5px;
+}
+
+.sidebar-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 15px;
+    color: #adb5bd;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    font-size: 15px;
+}
+
+.sidebar-menu li a i {
+    font-size: 18px;
+    width: 22px;
+    text-align: center;
+}
+
+/* HOVER */
+.sidebar-menu li a:hover {
+    background-color: #343a40;
+    color: white;
+}
+
+/* MENU AKTIF */
+.sidebar-menu li a.active {
+    background-color: #0d6efd;
+    color: white;
+}
+
+
 

@@ -9,7 +9,9 @@
         <thead>
             <tr>
                 <th>No</th>
+                <th>Kode Kategori</th>
                 <th>Keterangan</th>
+                <th>Nama Kategori</th>
                 <th>Aksi</th>
             </tr>
         </thead>
@@ -17,17 +19,19 @@
             @php
                 $no = 1;
             @endphp
-            @foreach ($data as $kategori)
+            @foreach ($data as $d)
                 <tr>
                     <td>{{ $no++ }}</td>
-                    <td>{{ $kategori->keterangan }}</td>
+                     <td>{{ $d->kode_kategori }}</td>
+                    <td>{{ $d->nama_kategori }}</td>
+                     <td>{{ $d->keterangan }}</td>
                     <td>
-                        <a href="{{ route('kategori.edit', ['kategori' => $kategori->id_kategori]) }}" class="btn btn-warning btn-sm">Edit</a>
-                        <form action="{{ route('kategori.destroy', ['kategori' => $kategori->id_kategori]) }}" method="POST" style="display: inline;">
+                        <a href="{{ route('kategori.edit', ['kategori' => $d->id_kategori]) }}" class="btn btn-warning btn-sm">Edit</a>
+                            <form action="{{ route('kategori.destroy', ['id' => $d->id_kategori  ]) }}" method="POST" class="d-inline" onsubmit="return confirm('Apakah benar akan dihapus?');">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')">Hapus</button>
-                        </form>
+                            <button type="submit" class="btn btn-sm btn-outline-danger">Hapus</button>
+                            </form> 
                     </td>
     
                 </tr>
