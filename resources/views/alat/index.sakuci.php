@@ -11,6 +11,7 @@
     <th>No</th>
     <th>nama alat</th>
     <th>kode alat</th>
+    <th>kategori</th>
     <th>Aksi</th>
 </tr>
 @php $no = 1; @endphp
@@ -19,6 +20,18 @@
     <td> {{ $no++ }} </td>
     <td> {{ $alats->nama_alat }} </td>
     <td> {{ $alats->kode_alat }} </td>
+    <td>
+        @php
+            $namaKategori = '-';
+            foreach ($kategori as $k) {
+                if ($k->id_kategori == $alats->id_kategori) {
+                    $namaKategori = $k->nama_kategori;
+                    break;
+                }
+            }
+        @endphp
+        {{ $namaKategori }}
+    </td>
     <td>
          <a href="{{ route('alat.edit', ['alat' => $alats->id_alat]) }}" class="btn btn-info btn-sm">Edit</a>
          <form action="{{ route('alat.delete', ['id' => $alats->id_alat]) }}" method="POST" style="display: inline-block;">

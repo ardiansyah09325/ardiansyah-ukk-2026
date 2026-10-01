@@ -14,6 +14,16 @@
     <label>Kode alat</label>
     <input type="text" name="kode_alat" id="kode_alat" class="form-control" value="{{ $datal->kode_alat }}" required>
 
+    <label>Kategori</label>
+    <select name="id_kategori" id="id_kategori" class="form-control" required>
+        <option value="">-- Pilih Kategori --</option>
+        @foreach ($kategori as $k)
+            <option value="{{ $k->id_kategori }}" {{ $datal->id_kategori == $k->id_kategori ? 'selected' : '' }}>
+                {{ $k->nama_kategori }}
+            </option>
+        @endforeach
+    </select>
+
     <button type="submit" class="btn btn-primary">Simpan</button>
 </form>
 @endsection
