@@ -10,12 +10,15 @@ class Pengembalian extends Model
 
     protected string $primaryKey = 'id_pengembalian';
 
+    public bool $timestamps = false;
+
     protected array $fillable = [
         'id_peminjaman',
         'tanggal_pengembalian',
         'terlambat_hari',
         'denda',
         'kondisi_barang',
-        'catatan'
+        'catatan',
+        'update_at'
     ];
 }
