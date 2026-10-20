@@ -49,15 +49,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::post('/kategori/store', [KategoriController::class, 'store'])->name('kategori.store');
     Route::get('/kategori/{id_kategori}/edit', [KategoriController::class, 'edit'])->name('kategori.edit');
     Route::put('/kategori/{id_kategori}', [KategoriController::class, 'update'])->name('kategori.update');
-    Route::delete('/kategori/{id_kategori}', [KategoriController::class, 'delete'])->name('kategori.destroy');
+    Route::delete('/kategori/{id_kategori}', [KategoriController::class, 'destroy'])->name('kategori.destroy');
 
     // ROUTE ALAT (Penting: Delete berada di atas Update agar URL tidak tertukar)
     Route::get('/alat', [AlatController::class, 'index'])->name('alat.index');
     Route::get('/alat/create', [AlatController::class, 'create'])->name('alat.create');
     Route::post('/alat/store', [AlatController::class, 'store'])->name('alat.store');
     Route::get('/alat/{id_alat}/edit', [AlatController::class, 'edit'])->name('alat.edit');
-    Route::post('/alat/{id_alat}/delete', [AlatController::class, 'delete'])->name('alat.delete');
-    Route::post('/alat/{id_alat}', [AlatController::class, 'update'])->name('alat.update');
+    Route::get('/alat/{id_alat}/delete', [AlatController::class, 'delete'])->name('alat.delete');
+    Route::put('/alat/{id_alat}', [AlatController::class, 'update'])->name('alat.update');
 
     Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
     Route::get('/peminjaman/create', [PeminjamanController::class, 'create'])->name('peminjaman.create');

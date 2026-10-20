@@ -51,7 +51,7 @@ class AlatController extends Controller
     {
         $datal = $request->validate([
             'nama_alat' => 'required|min:3|max:100',
-            'kode_alat' => 'required|min:3|max:100',
+            'kode_alat' => 'required|min:1|max:100',
             'id_kategori' => 'required',
         ]);
         Alat::create($datal);
