@@ -4,1061 +4,531 @@
 
 @section('content')
 
-<style> /* ========================================================= MOUNTAIN — DAFTAR ALAT ========================================================= */
-.alat-page {
-    padding: 24px 0 50px;
-}
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.alat-hero {
-    position: relative;
-    min-height: 390px;
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-
-    border-radius: 0 0 35px 35px;
-
-    background: linear-gradient(
-        180deg,
-        color-mix(
-            in srgb,
-            var(--bs-success) 65%,
-            var(--bs-body-bg)
-        ),
-        color-mix(
-            in srgb,
-            var(--bs-success) 82%,
-            var(--bs-body-bg)
-        )
-    );
-
-    color: var(--bs-light);
-
-    box-shadow: 0 15px 40px color-mix(
-        in srgb,
-        var(--bs-dark) 12%,
-        transparent
-    );
-}
-
-.alat-hero::before {
-    content: "";
-    position: absolute;
-
-    width: 650px;
-    height: 650px;
-
-    border-radius: 50%;
-
-    background: color-mix(
-        in srgb,
-        var(--bs-light) 10%,
-        transparent
-    );
-
-    filter: blur(80px);
-
-    top: -300px;
-    left: -200px;
-
-    pointer-events: none;
-}
-
-.alat-hero::after {
-    content: "";
-    position: absolute;
-
-    width: 550px;
-    height: 550px;
-
-    border-radius: 50%;
-
-    background: color-mix(
-        in srgb,
-        var(--bs-light) 9%,
-        transparent
-    );
-
-    filter: blur(90px);
-
-    bottom: -320px;
-    right: -150px;
-
-    pointer-events: none;
-}
-
-.alat-hero-content {
-    position: relative;
-    z-index: 5;
-    padding: 55px 35px;
-}
-
-/* =========================================================
-   BADGE
-========================================================= */
-
-.mountain-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    padding: 8px 16px;
-
-    border-radius: 50px;
-
-    background: color-mix(
-        in srgb,
-        var(--bs-light) 15%,
-        transparent
-    );
-
-    border: 1px solid color-mix(
-        in srgb,
-        var(--bs-light) 30%,
-        transparent
-    );
-
-    color: var(--bs-light);
-
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-
-    box-shadow: 0 8px 25px color-mix(
-        in srgb,
-        var(--bs-dark) 15%,
-        transparent
-    );
-
-    font-size: .78rem;
-    font-weight: 600;
-    letter-spacing: .04em;
-}
-
-/* =========================================================
-   TITLE
-========================================================= */
-
-.alat-hero-title {
-    font-size: clamp(2.5rem, 5vw, 4.5rem);
-    line-height: 1.05;
-    letter-spacing: -2px;
-
-    color: var(--bs-light);
-
-    text-shadow: 0 8px 25px color-mix(
-        in srgb,
-        var(--bs-dark) 25%,
-        transparent
-    );
-}
-
-.alat-hero-description {
-    max-width: 610px;
-
-    color: color-mix(
-        in srgb,
-        var(--bs-light) 85%,
-        transparent
-    );
-
-    font-size: 1.05rem;
-    line-height: 1.8;
-}
-
-/* =========================================================
-   SEARCH BOX
-========================================================= */
-
-.alat-search-box {
-    position: relative;
-    z-index: 6;
-
-    background: color-mix(
-        in srgb,
-        var(--bs-light) 10%,
-        transparent
-    );
-
-    border: 1px solid color-mix(
-        in srgb,
-        var(--bs-light) 25%,
-        transparent
-    );
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    border-radius: 20px;
-
-    padding: 20px;
-
-    box-shadow: 0 15px 35px color-mix(
-        in srgb,
-        var(--bs-dark) 15%,
-        transparent
-    );
-}
-
-.alat-search-input {
-    border: 0;
-    box-shadow: none !important;
-    border-radius: 12px 0 0 12px !important;
-}
-
-.alat-search-button {
-    background: var(--bs-warning);
-    border-color: var(--bs-warning);
-
-    color: var(--bs-dark);
-
-    font-weight: 700;
-
-    border-radius: 0 12px 12px 0 !important;
-}
-
-.alat-search-button:hover {
-    background: var(--bs-warning);
-    border-color: var(--bs-warning);
-    color: var(--bs-dark);
-}
-
-/* =========================================================
-   MOUNTAIN
-========================================================= */
-
-.alat-mountain {
-    position: absolute;
-
-    bottom: -5px;
-    z-index: 1;
-
-    width: 0;
-    height: 0;
-
-    border-left: 230px solid transparent;
-    border-right: 230px solid transparent;
-
-    border-bottom: 330px solid color-mix(
-        in srgb,
-        var(--bs-dark) 45%,
-        var(--bs-success)
-    );
-
-    filter: drop-shadow(
-        0 -10px 15px
-        color-mix(
-            in srgb,
-            var(--bs-dark) 10%,
-            transparent
-        )
-    );
-}
-
-.alat-mountain.one {
-    left: -60px;
-}
-
-.alat-mountain.two {
-    right: -50px;
-    transform: scale(1.25);
-    opacity: .78;
-}
-
-.alat-mountain.three {
-    left: 36%;
-    transform: scale(.72);
-    opacity: .52;
-}
-
-/* =========================================================
-   SNOW
-========================================================= */
-
-.alat-snow {
-    position: absolute;
-    z-index: 2;
-
-    width: 0;
-    height: 0;
-
-    border-left: 60px solid transparent;
-    border-right: 60px solid transparent;
-
-    border-bottom: 88px solid color-mix(
-        in srgb,
-        var(--bs-light) 75%,
-        transparent
-    );
-
-    bottom: 250px;
-    left: calc(50% - 60px);
-}
-
-/* =========================================================
-   FOREST
-========================================================= */
-
-.alat-trees {
-    position: absolute;
-
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    height: 105px;
-
-    z-index: 2;
-
-    background:
-        linear-gradient(
-            135deg,
-            transparent 25%,
-            color-mix(
-                in srgb,
-                var(--bs-dark) 60%,
-                var(--bs-success)
-            ) 25%,
-            color-mix(
-                in srgb,
-                var(--bs-dark) 60%,
-                var(--bs-success)
-            ) 30%,
-            transparent 30%
-        ),
-
-        linear-gradient(
-            45deg,
-            transparent 25%,
-            color-mix(
-                in srgb,
-                var(--bs-dark) 45%,
-                var(--bs-success)
-            ) 25%,
-            color-mix(
-                in srgb,
-                var(--bs-dark) 45%,
-                var(--bs-success)
-            ) 30%,
-            transparent 30%
-        );
-
-    opacity: .9;
-}
-
-/* =========================================================
-   FLOATING ICON
-========================================================= */
-
-.alat-floating {
-    position: absolute;
-    z-index: 4;
-
-    font-size: 32px;
-    opacity: .8;
-
-    animation: alatFloating 4s ease-in-out infinite;
-}
-
-.alat-floating.one {
-    top: 17%;
-    left: 7%;
-}
-
-.alat-floating.two {
-    top: 25%;
-    right: 8%;
-    animation-delay: 1s;
-}
-
-.alat-floating.three {
-    bottom: 25%;
-    left: 18%;
-    animation-delay: 2s;
-}
-
-@keyframes alatFloating {
-    0%, 100% {
-        transform: translateY(0);
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap" rel="stylesheet">
+
+<style>
+    .pj-wrap {
+        --pj-bg: #eaf3fc;
+        --pj-soft: #cfe4f8;
+        --pj-mid: #8dbceb;
+        --pj-deep: #3f7fc4;
+        --pj-ink: #1f4e85;
+        --pj-paper: #ffffff;
+        --pj-accent: #f6d88b;
+        --pj-text-soft: #4d79a8;
+        --pj-stub: #3f7fc4;
+        --pj-shadow: rgba(31, 78, 133, .35);
+        --pj-line: #d6e6f6;
+        --pj-head: #f0f6fd;
+        --pj-on-deep: #ffffff;
+        --pj-ok: #1d7650;
+        --pj-ok-bg: #dcf4e8;
+
+        position: relative;
+        overflow: hidden;
+        min-height: calc(100vh - 80px);
+        padding: 2rem 1.25rem 2.5rem;
+        font-family: 'Bricolage Grotesque', system-ui, sans-serif;
+        color: var(--pj-ink);
+        background-color: var(--pj-bg);
+        background-image: radial-gradient(var(--pj-soft) 2px, transparent 2.5px);
+        background-size: 26px 26px;
+    }
+    @media (min-width: 768px) { .pj-wrap { padding: 2.75rem 2.5rem 3rem; } }
+
+    /* ---------- mode gelap: ikuti perangkat, kecuali situs dipaksa terang ---------- */
+    @media (prefers-color-scheme: dark) {
+        html:not([data-theme="light"]):not([data-bs-theme="light"]):not(.light) .pj-wrap {
+            --pj-bg: #0f1b2b;
+            --pj-soft: #1d3552;
+            --pj-mid: #3d6a9e;
+            --pj-deep: #7ab8f5;
+            --pj-ink: #e3eefb;
+            --pj-paper: #162a43;
+            --pj-accent: #e8c870;
+            --pj-text-soft: #9db9d8;
+            --pj-stub: #2f5f98;
+            --pj-shadow: rgba(0, 0, 0, .55);
+            --pj-line: #24415f;
+            --pj-head: #1a3049;
+            --pj-on-deep: #0f1b2b;
+            --pj-ok: #7fe0b0;
+            --pj-ok-bg: #16352b;
+        }
+        html:not([data-theme="light"]):not([data-bs-theme="light"]):not(.light) .pj-wrap .pj-blob { opacity: .45; }
+        html:not([data-theme="light"]):not([data-bs-theme="light"]):not(.light) .pj-wrap .pj-deco { opacity: .4; }
+    }
+    /* ---------- mode gelap: dipilih lewat toggle di situs ---------- */
+    html[data-theme="dark"] .pj-wrap,
+    html[data-bs-theme="dark"] .pj-wrap,
+    html.dark .pj-wrap,
+    body.dark .pj-wrap,
+    [data-bs-theme="dark"] .pj-wrap {
+        --pj-bg: #0f1b2b;
+        --pj-soft: #1d3552;
+        --pj-mid: #3d6a9e;
+        --pj-deep: #7ab8f5;
+        --pj-ink: #e3eefb;
+        --pj-paper: #162a43;
+        --pj-accent: #e8c870;
+        --pj-text-soft: #9db9d8;
+        --pj-stub: #2f5f98;
+        --pj-shadow: rgba(0, 0, 0, .55);
+        --pj-line: #24415f;
+        --pj-head: #1a3049;
+        --pj-on-deep: #0f1b2b;
+        --pj-ok: #7fe0b0;
+        --pj-ok-bg: #16352b;
+    }
+    html[data-theme="dark"] .pj-wrap .pj-blob, html[data-bs-theme="dark"] .pj-wrap .pj-blob,
+    html.dark .pj-wrap .pj-blob, body.dark .pj-wrap .pj-blob, [data-bs-theme="dark"] .pj-wrap .pj-blob { opacity: .45; }
+    html[data-theme="dark"] .pj-wrap .pj-deco, html[data-bs-theme="dark"] .pj-wrap .pj-deco,
+    html.dark .pj-wrap .pj-deco, body.dark .pj-wrap .pj-deco, [data-bs-theme="dark"] .pj-wrap .pj-deco { opacity: .4; }
+
+    /* ---------- hiasan ---------- */
+    .pj-deco { position: absolute; pointer-events: none; color: var(--pj-mid); opacity: .55; }
+    .pj-deco svg { width: 100%; height: 100%; display: block; }
+    .pj-deco.d1 { width: 92px; height: 92px; top: -18px; right: 6%; transform: rotate(18deg); }
+    .pj-deco.d2 { width: 70px; height: 70px; bottom: 14px; left: 3%; transform: rotate(-20deg); }
+    .pj-deco.d3 { width: 56px; height: 56px; bottom: 36px; right: 5%; transform: rotate(10deg); }
+    .pj-blob { position: absolute; border-radius: 50%; background: var(--pj-soft); opacity: .7; pointer-events: none; }
+    .pj-blob.b1 { width: 220px; height: 220px; top: -90px; left: -70px; }
+    .pj-blob.b2 { width: 160px; height: 160px; bottom: -60px; right: 22%; }
+    .pj-inner { position: relative; z-index: 1; }
+
+    @keyframes pj-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -12px; } }
+    .pj-deco.d1 { animation: pj-float 6s ease-in-out infinite; }
+    .pj-deco.d2 { animation: pj-float 7s ease-in-out -2s infinite; }
+    .pj-deco.d3 { animation: pj-float 5.5s ease-in-out -4s infinite; }
+
+    /* ---------- slip judul ---------- */
+    .pj-slip {
+        display: flex;
+        background: var(--pj-paper);
+        border-radius: 1.25rem;
+        box-shadow: 0 10px 28px -12px var(--pj-shadow);
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+    }
+    .pj-stub {
+        flex: 0 0 auto;
+        width: 110px;
+        background: var(--pj-stub);
+        color: #fff;
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        gap: .6rem;
+        padding: 1rem .5rem;
+        border-right: 3px dashed rgba(255, 255, 255, .55);
+    }
+    .pj-stub .hole {
+        width: 16px; height: 16px; border-radius: 50%;
+        background: var(--pj-bg);
+        box-shadow: inset 0 2px 3px rgba(31, 78, 133, .35);
+    }
+    .pj-stub svg { width: 44px; height: 44px; }
+    .pj-slip-body { padding: 1.6rem 1.5rem; flex: 1; min-width: 0; }
+    .pj-badge {
+        display: inline-flex; align-items: center; gap: .4rem;
+        background: var(--pj-soft);
+        color: var(--pj-ink);
+        font-weight: 600; font-size: .85rem;
+        padding: .3rem .9rem;
+        border-radius: 999px;
+    }
+    .pj-badges { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .pj-title {
+        font-weight: 800;
+        font-size: clamp(1.8rem, 4.8vw, 2.9rem);
+        line-height: 1.07;
+        letter-spacing: -.025em;
+        margin: .9rem 0 .6rem;
+        color: var(--pj-ink);
+    }
+    .pj-title span { color: var(--pj-deep); }
+    .pj-lead { margin: 0 0 1.1rem; color: var(--pj-text-soft); max-width: 58ch; line-height: 1.6; }
+
+    /* ---------- pencarian ---------- */
+    .pj-search {
+        background: var(--pj-paper);
+        border: 2px dashed var(--pj-line);
+        border-radius: 1.25rem;
+        padding: 1.1rem 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+    .pj-search label {
+        display: flex; align-items: center; gap: .4rem;
+        font-weight: 700; font-size: .85rem;
+        color: var(--pj-text-soft);
+        margin-bottom: .55rem;
+    }
+    .pj-search-row { display: flex; gap: .6rem; flex-wrap: wrap; }
+    .pj-input {
+        flex: 1 1 220px;
+        min-width: 0;
+        padding: .65rem 1rem;
+        border-radius: .8rem;
+        border: 2px solid var(--pj-line);
+        background: var(--pj-head);
+        color: var(--pj-ink);
+        font-family: inherit; font-size: .95rem;
+    }
+    .pj-input::placeholder { color: var(--pj-text-soft); opacity: .8; }
+    .pj-input:focus { outline: 3px solid var(--pj-deep); outline-offset: 2px; border-color: var(--pj-deep); }
+    .pj-search-state {
+        display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem;
+        margin-top: .85rem; padding-top: .85rem;
+        border-top: 2px dashed var(--pj-line);
+        font-size: .9rem; color: var(--pj-text-soft);
+    }
+    .pj-search-state a { color: var(--pj-deep); font-weight: 700; }
+
+    /* ---------- tombol ---------- */
+    .pj-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+        padding: .65rem 1.3rem;
+        border-radius: .8rem;
+        border: 2px solid var(--pj-deep);
+        background: var(--pj-deep);
+        color: var(--pj-on-deep);
+        font-family: inherit; font-weight: 700; font-size: .92rem;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .pj-btn:hover { filter: brightness(1.07); color: var(--pj-on-deep); }
+    .pj-btn:focus-visible { outline: 3px solid var(--pj-deep); outline-offset: 3px; }
+    .pj-btn.line { background: transparent; color: var(--pj-deep); }
+    .pj-btn.line:hover { background: var(--pj-soft); color: var(--pj-ink); filter: none; }
+    .pj-btn.block { width: 100%; }
+
+    /* ---------- info hasil ---------- */
+    .pj-result {
+        display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .6rem;
+        margin-bottom: .4rem;
+        color: var(--pj-text-soft);
+        font-size: .92rem;
+    }
+    .pj-result strong { color: var(--pj-ink); }
+    .pj-result i { color: var(--pj-deep); }
+    .pj-chip {
+        display: inline-flex; align-items: center; gap: .35rem;
+        padding: .25rem .8rem;
+        border-radius: 999px;
+        background: var(--pj-ok-bg); color: var(--pj-ok);
+        font-weight: 600; font-size: .8rem;
     }
 
-    50% {
-        transform: translateY(-12px);
+    /* ---------- label alat (digantung) ---------- */
+    .pj-grid { padding-top: 1.4rem; }
+    .pj-tag {
+        position: relative;
+        height: 100%;
+        display: flex; flex-direction: column; justify-content: space-between;
+        background: var(--pj-paper);
+        border-radius: .5rem 1.5rem 1.5rem 1.5rem;
+        padding: 2.4rem 1.3rem 1.3rem;
+        box-shadow: 0 8px 22px -12px var(--pj-shadow);
+        transform-origin: 50% 0;
     }
-}
-
-/* =========================================================
-   TOOL ILLUSTRATION
-========================================================= */
-
-.alat-hero-icon {
-    position: relative;
-    z-index: 5;
-
-    width: 125px;
-    height: 125px;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 30px;
-
-    background: color-mix(
-        in srgb,
-        var(--bs-light) 14%,
-        transparent
-    );
-
-    border: 1px solid color-mix(
-        in srgb,
-        var(--bs-light) 30%,
-        transparent
-    );
-
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-
-    color: var(--bs-light);
-
-    font-size: 4rem;
-
-    transform: rotate(5deg);
-
-    box-shadow: 0 20px 45px color-mix(
-        in srgb,
-        var(--bs-dark) 20%,
-        transparent
-    );
-
-    transition: all .3s ease;
-}
-
-.alat-hero-icon:hover {
-    transform: rotate(0deg) scale(1.05);
-}
-
-/* =========================================================
-   RESULT INFO
-========================================================= */
-
-.alat-result-info {
-    padding: 25px 4px 15px;
-}
-
-/* =========================================================
-   ALAT CARD
-========================================================= */
-
-.alat-card {
-    position: relative;
-
-    height: 100%;
-
-    background: var(--bs-body-bg);
-    color: var(--bs-body-color);
-
-    border: 1px solid var(--bs-border-color) !important;
-
-    border-radius: 20px;
-
-    overflow: hidden;
-
-    box-shadow: 0 10px 35px color-mix(
-        in srgb,
-        var(--bs-dark) 8%,
-        transparent
-    );
-
-    transition: all .3s ease;
-}
-
-.alat-card:hover {
-    transform: translateY(-7px);
-
-    border-color: color-mix(
-        in srgb,
-        var(--bs-success) 45%,
-        var(--bs-border-color)
-    ) !important;
-
-    box-shadow: 0 18px 40px color-mix(
-        in srgb,
-        var(--bs-dark) 14%,
-        transparent
-    );
-}
-
-/* =========================================================
-   TOP ACCENT
-========================================================= */
-
-.card-top-accent {
-    height: 4px;
-    width: 100%;
-    background: var(--bs-success);
-}
-
-/* =========================================================
-   ALAT ICON
-========================================================= */
-
-.alat-icon-box {
-    width: 52px;
-    height: 52px;
-
-    flex-shrink: 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 15px;
-
-    background: color-mix(
-        in srgb,
-        var(--bs-success) 11%,
-        var(--bs-body-bg)
-    );
-
-    color: var(--bs-success);
-
-    font-size: 1.35rem;
-
-    transition: all .3s ease;
-}
-
-.alat-card:hover .alat-icon-box {
-    transform: rotate(-5deg) scale(1.05);
-
-    background: color-mix(
-        in srgb,
-        var(--bs-success) 17%,
-        var(--bs-body-bg)
-    );
-}
-
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.btn-alat {
-    background: var(--bs-warning);
-    border-color: var(--bs-warning);
-
-    color: var(--bs-dark);
-
-    font-weight: 700;
-
-    border-radius: 14px;
-
-    transition: all .3s ease;
-}
-
-.btn-alat:hover {
-    background: var(--bs-warning);
-    border-color: var(--bs-warning);
-    color: var(--bs-dark);
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 10px 25px color-mix(
-        in srgb,
-        var(--bs-dark) 18%,
-        transparent
-    );
-}
-
-/* =========================================================
-   EMPTY STATE
-========================================================= */
-
-.alat-empty {
-    background: var(--bs-body-bg);
-
-    border: 1px solid var(--bs-border-color);
-
-    border-radius: 20px;
-
-    padding: 60px 25px;
-
-    box-shadow: 0 10px 35px color-mix(
-        in srgb,
-        var(--bs-dark) 8%,
-        transparent
-    );
-}
-
-/* =========================================================
-   UTILITY
-========================================================= */
-
-.line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.backdrop-blur {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.hover-lift {
-    transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.hover-lift:hover {
-    transform: translateY(-2px);
-}
-
-.fs-7 {
-    font-size: .875rem;
-    line-height: 1.4;
-}
-
-.fs-8 {
-    font-size: .75rem;
-}
-
-.tracking-wide {
-    letter-spacing: .04em;
-}
-
-.tracking-wider {
-    letter-spacing: .06em;
-}
-
-/* =========================================================
-   DARK MODE
-========================================================= */
-
-[data-bs-theme="dark"] .alat-hero {
-    background: linear-gradient(
-        180deg,
-        color-mix(
-            in srgb,
-            var(--bs-success) 38%,
-            var(--bs-body-bg)
-        ),
-        color-mix(
-            in srgb,
-            var(--bs-success) 20%,
-            var(--bs-body-bg)
-        )
-    );
-}
-
-[data-bs-theme="dark"] .alat-card,
-[data-bs-theme="dark"] .alat-empty {
-    box-shadow: 0 10px 35px rgba(0, 0, 0, .18);
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 768px) {
-
-    .alat-page {
-        padding-top: 10px;
+    .pj-tag::before {
+        content: '';
+        position: absolute;
+        top: 14px; left: 50%;
+        width: 16px; height: 16px; margin-left: -8px;
+        border-radius: 50%;
+        background: var(--pj-bg);
+        box-shadow: inset 0 2px 3px rgba(31, 78, 133, .3);
+        z-index: 2;
+    }
+    .pj-tag::after {
+        content: '';
+        position: absolute;
+        top: -22px; left: 50%;
+        width: 30px; height: 40px; margin-left: -15px;
+        border: 3px solid var(--pj-accent);
+        border-bottom: 0;
+        border-radius: 30px 30px 0 0;
+        z-index: 1;
+    }
+    .pj-tag:hover { animation: pj-swing .9s ease-out; }
+    @keyframes pj-swing {
+        20% { transform: rotate(3deg); }
+        45% { transform: rotate(-2deg); }
+        70% { transform: rotate(1deg); }
+        100% { transform: rotate(0); }
     }
 
-    .alat-hero {
-        min-height: 570px;
-        border-radius: 0 0 25px 25px;
+    .pj-tag-top { display: flex; justify-content: space-between; align-items: center; gap: .5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+    .pj-id {
+        display: inline-flex; align-items: center; gap: .45rem;
+        padding: .3rem .75rem .3rem .55rem;
+        border-radius: .3rem .8rem .8rem .3rem;
+        background: var(--pj-head);
+        border: 1px solid var(--pj-line);
+        color: var(--pj-ink);
+        font-weight: 700; font-size: .8rem;
+        white-space: nowrap;
     }
-
-    .alat-hero-content {
-        padding: 45px 22px;
+    .pj-id::before {
+        content: '';
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--pj-bg);
+        box-shadow: inset 0 1px 2px rgba(31, 78, 133, .35);
     }
-
-    .alat-hero-title {
-        font-size: 2.6rem;
-        letter-spacing: -1px;
+    .pj-cat {
+        padding: .25rem .8rem;
+        border-radius: 999px;
+        background: var(--pj-soft); color: var(--pj-ink);
+        font-weight: 600; font-size: .78rem;
     }
-
-    .alat-hero-description {
-        font-size: .98rem;
+    .pj-tag-main { display: flex; align-items: flex-start; gap: .9rem; }
+    .pj-ico {
+        width: 48px; height: 48px; flex: 0 0 auto;
+        display: grid; place-items: center;
+        border-radius: .9rem;
+        background: var(--pj-soft); color: var(--pj-deep);
+        font-size: 1.3rem;
     }
-
-    .alat-mountain {
-        transform: scale(.65);
-        transform-origin: bottom center;
+    .pj-name {
+        font-size: 1.05rem; font-weight: 800; line-height: 1.25;
+        margin: 0 0 .3rem; color: var(--pj-ink);
+        display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
+    .pj-stock { font-size: .82rem; color: var(--pj-text-soft); }
+    .pj-stock strong, .pj-ready { color: var(--pj-ok); font-weight: 700; }
+    .pj-tag-foot { margin-top: 1.1rem; padding-top: 1rem; border-top: 2px dashed var(--pj-line); }
 
-    .alat-mountain.two {
-        transform: scale(.8);
+    /* ---------- kosong ---------- */
+    .pj-empty {
+        text-align: center;
+        background: var(--pj-paper);
+        border-radius: .6rem 1.5rem 1.5rem 1.5rem;
+        box-shadow: 0 8px 22px -12px var(--pj-shadow);
+        padding: 3rem 1.5rem;
     }
+    .pj-empty .pj-ico { width: 64px; height: 64px; margin: 0 auto 1rem; border-radius: 1.2rem; font-size: 1.9rem; }
+    .pj-empty h2 { font-size: 1.2rem; font-weight: 800; margin: 0 0 .4rem; color: var(--pj-ink); }
+    .pj-empty p { margin: 0 0 1.3rem; font-size: .92rem; color: var(--pj-text-soft); }
 
-    .alat-mountain.three {
-        transform: scale(.55);
+    @media (prefers-reduced-motion: reduce) {
+        .pj-deco { animation: none !important; }
+        .pj-tag:hover { animation: none; }
     }
-
-    .alat-snow {
-        bottom: 205px;
+    @media (max-width: 479px) {
+        .pj-stub { width: 64px; }
+        .pj-stub svg { width: 30px; height: 30px; }
+        .pj-slip-body { padding: 1.1rem; }
     }
+</style>
 
-    .alat-result-info {
-        padding-top: 20px;
-    }
-}
+<div class="pj-wrap">
+    <span class="pj-blob b1"></span>
+    <span class="pj-blob b2"></span>
 
-</style> <div class="container-fluid px-0 alat-page">
-{{-- =====================================================
-     HERO HEADER
-====================================================== --}}
+    {{-- hiasan: kunci inggris, kamera, obeng --}}
+    <span class="pj-deco d1" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0 5 5L21 12.6a1 1 0 0 1 0 1.4l-7 7a1 1 0 0 1-1.4 0L3 11.4a1 1 0 0 1 0-1.4l7-7a1 1 0 0 1 1.4 0l3.3 3.3z"/></svg>
+    </span>
+    <span class="pj-deco d2" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13.5" r="3.5"/></svg>
+    </span>
+    <span class="pj-deco d3" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4l6 6-3 3-6-6 3-3z"/><path d="M11 7l-8 8v4h4l8-8"/></svg>
+    </span>
 
-<section class="alat-hero mb-4">
+    <div class="pj-inner">
 
-    {{-- Gunung --}}
-    <div class="alat-mountain one"></div>
-    <div class="alat-mountain two"></div>
-    <div class="alat-mountain three"></div>
+        {{-- slip judul --}}
+        <div class="pj-slip">
+            <div class="pj-stub" aria-hidden="true">
+                <span class="hole"></span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
+            </div>
+            <div class="pj-slip-body">
 
-    {{-- Salju --}}
-    <div class="alat-snow"></div>
-
-    {{-- Hutan --}}
-    <div class="alat-trees"></div>
-
-    {{-- Dekorasi --}}
-    <div class="alat-floating one">
-        🏕️
-    </div>
-
-    <div class="alat-floating two">
-        ⛰️
-    </div>
-
-    <div class="alat-floating three">
-        🎒
-    </div>
-
-    <div class="alat-hero-content w-100">
-
-        <div class="row align-items-center justify-content-between g-4">
-
-            {{-- =================================================
-                 INFORMASI
-            ================================================== --}}
-
-            <div class="col-lg-7">
-
-                <span class="mountain-badge mb-3">
-
+                <span class="pj-badge">
                     <i class="bi bi-box-seam-fill"></i>
-
-                    Inventaris Peralatan Camping
-
+                    Inventaris Alat 
                 </span>
 
-                <h1 class="alat-hero-title fw-bold mb-3">
-
+                <h1 class="pj-title">
                     Katalog Alat<br>
-
-                    <span>
-                        Siap Mendaki 🏕️
-                    </span>
-
+                    <span>Elektronik, Peralatan &amp; Multimedia</span>
                 </h1>
 
-                <p class="alat-hero-description mb-4">
-
-                    Jelajahi berbagai peralatan camping dan pendakian
-                    yang tersedia. Pilih perlengkapan yang kamu butuhkan
+                <p class="pj-lead">
+                    Jelajahi berbagai alat elektronik, peralatan, dan multimedia
+                    yang tersedia. Pilih alat yang kamu butuhkan
                     dan ajukan peminjaman dengan mudah.
-
                 </p>
 
-                <div class="d-flex flex-wrap gap-2">
-
-                    <span class="mountain-badge">
-
-                        <i class="bi bi-check-circle-fill text-success"></i>
-
+                <div class="pj-badges">
+                    <span class="pj-badge">
+                        <i class="bi bi-check-circle-fill"></i>
                         Siap Dipinjam
-
                     </span>
-
-                    <span class="mountain-badge">
-
+                    <span class="pj-badge">
                         <i class="bi bi-shield-check"></i>
-
                         Terverifikasi
-
                     </span>
-
                 </div>
 
             </div>
-
-            {{-- =================================================
-                 SEARCH
-            ================================================== --}}
-
-            <div class="col-lg-5">
-
-                <form
-                    action="{{ route('peminjam.alat') }}"
-                    method="GET"
-                    class="alat-search-box"
-                >
-
-                    <label class="form-label text-white fw-semibold fs-8 mb-2 tracking-wider text-uppercase">
-
-                        <i class="bi bi-search me-1"></i>
-
-                        Cari Peralatan
-
-                    </label>
-
-                    <div class="input-group">
-
-                        <input
-                            type="text"
-                            name="q"
-                            class="form-control form-control-lg alat-search-input"
-                            placeholder="Nama atau kode alat..."
-                            value="{{ request('q') }}"
-                        >
-
-                        <button
-                            class="btn alat-search-button px-4"
-                            type="submit"
-                        >
-
-                            <i class="bi bi-search me-1"></i>
-                            Cari
-
-                        </button>
-
-                    </div>
-
-                    @if(request('q'))
-
-                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top border-white border-opacity-10">
-
-                            <span class="small text-white-50">
-
-                                Hasil:
-                                <strong>
-                                    "{{ request('q') }}"
-                                </strong>
-
-                            </span>
-
-                            <a
-                                href="{{ route('peminjam.alat') }}"
-                                class="small text-white text-decoration-underline"
-                            >
-                                Reset
-                            </a>
-
-                        </div>
-
-                    @endif
-
-                </form>
-
-            </div>
-
         </div>
 
-    </div>
+        {{-- pencarian --}}
+        <form action="{{ route('peminjam.alat') }}" method="GET" class="pj-search">
 
-</section>
+            <label for="pj-q">
+                <i class="bi bi-search"></i>
+                Cari Peralatan
+            </label>
 
-@php
+            <div class="pj-search-row">
+                <input
+                    id="pj-q"
+                    type="text"
+                    name="q"
+                    class="pj-input"
+                    placeholder="Nama atau kode alat..."
+                    value="{{ request('q') }}"
+                >
 
-    // Ambil data alat mentah
-    $rawAlats = $alats ?? $alat ?? [];
-    $searchQuery = trim(request('q') ?? '');
+                <button class="pj-btn" type="submit">
+                    <i class="bi bi-search"></i>
+                    Cari
+                </button>
+            </div>
 
-    // Filter data menggunakan PHP murni
-    $filteredAlats = [];
+            @if(request('q'))
+                <div class="pj-search-state">
+                    <span>
+                        Hasil: <strong>"{{ request('q') }}"</strong>
+                    </span>
+                    <a href="{{ route('peminjam.alat') }}">Reset</a>
+                </div>
+            @endif
 
-    foreach ($rawAlats as $item) {
+        </form>
 
-        $namaAlat = $item->nama_alat
-            ?? $item->nama
-            ?? $item->name
-            ?? '';
+        @php
 
-        $kodeAlat = $item->kode_alat
-            ?? $item->kode
-            ?? '';
+            // Ambil data alat mentah
+            $rawAlats = $alats ?? $alat ?? [];
+            $searchQuery = trim(request('q') ?? '');
 
-        if (!empty($searchQuery)) {
+            // Filter data menggunakan PHP murni
+            $filteredAlats = [];
 
-            if (
-                stripos($namaAlat, $searchQuery) !== false ||
-                stripos($kodeAlat, $searchQuery) !== false
-            ) {
+            foreach ($rawAlats as $item) {
 
-                $filteredAlats[] = $item;
+                $namaAlat = $item->nama_alat
+                    ?? $item->nama
+                    ?? $item->name
+                    ?? '';
+
+                $kodeAlat = $item->kode_alat
+                    ?? $item->kode
+                    ?? '';
+
+                if (!empty($searchQuery)) {
+
+                    if (
+                        stripos($namaAlat, $searchQuery) !== false ||
+                        stripos($kodeAlat, $searchQuery) !== false
+                    ) {
+                        $filteredAlats[] = $item;
+                    }
+
+                } else {
+                    $filteredAlats[] = $item;
+                }
 
             }
 
-        } else {
+        @endphp
 
-            $filteredAlats[] = $item;
-
-        }
-
-    }
-
-@endphp
-
-{{-- =====================================================
-     HASIL PENCARIAN
-====================================================== --}}
-
-<div class="container-fluid px-3 px-md-4">
-
-    <div class="alat-result-info d-flex justify-content-between align-items-center flex-wrap gap-2">
-
-        <div>
-
-            <span class="text-secondary small">
-
-                <i class="bi bi-grid-3x3-gap-fill text-success me-1"></i>
-
+        {{-- info hasil --}}
+        <div class="pj-result">
+            <span>
+                <i class="bi bi-grid-3x3-gap-fill"></i>
                 Menampilkan
-
-                <strong class="text-body">
-                    {{ count($filteredAlats) }}
-                </strong>
-
+                <strong>{{ count($filteredAlats) }}</strong>
                 alat yang siap dipinjam
-
             </span>
 
+            @if(request('q'))
+                <span class="pj-chip">
+                    <i class="bi bi-funnel-fill"></i>
+                    Filter aktif
+                </span>
+            @endif
         </div>
 
-        @if(request('q'))
+        {{-- grid alat --}}
+        <div class="row g-4 pj-grid">
 
-            <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2">
+            @forelse($filteredAlats as $item)
 
-                <i class="bi bi-funnel-fill me-1"></i>
+                @php
 
-                Filter aktif
+                    $namaKategori =
+                        $kategoriMap[$item->id_kategori] ?? 'Umum';
 
-            </span>
+                    $alatId =
+                        $item->id_alat ?? $item->id;
 
-        @endif
+                    $namaAlat =
+                        $item->nama_alat
+                        ?? $item->nama
+                        ?? $item->name
+                        ?? 'Alat #' . $alatId;
 
-    </div>
+                    $kodeAlat =
+                        $item->kode_alat
+                        ?? $item->kode
+                        ?? 'ALT';
 
-    {{-- =================================================
-         GRID ALAT
-    ================================================== --}}
+                    $stokAlat =
+                        $item->stok
+                        ?? $item->jumlah
+                        ?? null;
 
-    <div class="row g-4 mb-4">
+                @endphp
 
-        @forelse($filteredAlats as $item)
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
 
-            @php
-
-                $namaKategori =
-                    $kategoriMap[$item->id_kategori] ?? 'Umum';
-
-                $alatId =
-                    $item->id_alat ?? $item->id;
-
-                $namaAlat =
-                    $item->nama_alat
-                    ?? $item->nama
-                    ?? $item->name
-                    ?? 'Alat #' . $alatId;
-
-                $kodeAlat =
-                    $item->kode_alat
-                    ?? $item->kode
-                    ?? 'ALT';
-
-                $stokAlat =
-                    $item->stok
-                    ?? $item->jumlah
-                    ?? null;
-
-            @endphp
-
-            <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
-
-                <div class="alat-card">
-
-                    {{-- Aksen --}}
-                    <div class="card-top-accent"></div>
-
-                    <div class="card-body d-flex flex-column justify-content-between p-4">
+                    <div class="pj-tag">
 
                         <div>
 
-                            {{-- Badge --}}
-                            <div class="d-flex justify-content-between align-items-center mb-4 gap-2">
-
-                                <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-semibold fs-8">
-
-                                    <i class="bi bi-tag-fill me-1"></i>
-
-                                    {{ $kodeAlat }}
-
-                                </span>
-
-                                <span class="badge bg-secondary-subtle text-secondary px-3 py-2 rounded-pill fs-8">
-
-                                    {{ $namaKategori }}
-
-                                </span>
-
+                            <div class="pj-tag-top">
+                                <span class="pj-id">{{ $kodeAlat }}</span>
+                                <span class="pj-cat">{{ $namaKategori }}</span>
                             </div>
 
-                            {{-- Icon + Nama --}}
-                            <div class="d-flex align-items-start gap-3 mb-3">
+                            <div class="pj-tag-main">
 
-                                <div class="alat-icon-box shadow-sm">
-
+                                <span class="pj-ico" aria-hidden="true">
                                     <i class="bi bi-tools"></i>
+                                </span>
 
-                                </div>
+                                <div style="min-width: 0;">
 
-                                <div class="min-width-0">
-
-                                    <h5 class="fw-bold fs-6 mb-1 text-body line-clamp-2">
-
-                                        {{ $namaAlat }}
-
-                                    </h5>
+                                    <h2 class="pj-name">{{ $namaAlat }}</h2>
 
                                     @if(isset($stokAlat))
-
-                                        <small class="text-secondary fs-8">
-
-                                            <i class="bi bi-box-seam me-1"></i>
-
+                                        <div class="pj-stock">
+                                            <i class="bi bi-box-seam"></i>
                                             Stok tersedia:
-
-                                            <strong class="text-success">
-                                                {{ $stokAlat }} unit
-                                            </strong>
-
-                                        </small>
-
+                                            <strong>{{ $stokAlat }} unit</strong>
+                                        </div>
                                     @else
-
-                                        <small class="text-success fs-8">
-
-                                            <i class="bi bi-check-circle-fill me-1"></i>
-
+                                        <div class="pj-stock pj-ready">
+                                            <i class="bi bi-check-circle-fill"></i>
                                             Status: Ready
-
-                                        </small>
-
+                                        </div>
                                     @endif
 
                                 </div>
@@ -1067,88 +537,53 @@
 
                         </div>
 
-                        {{-- Tombol --}}
-                        <div class="mt-3 pt-3 border-top">
-
+                        <div class="pj-tag-foot">
                             <a
                                 href="{{ route('peminjam.createPeminjam') . '?id_alat=' . $alatId }}"
-                                class="btn btn-alat w-100 py-2 d-flex align-items-center justify-content-center gap-2 hover-lift shadow-sm"
+                                class="pj-btn block"
                             >
-
                                 <i class="bi bi-handbag-fill"></i>
-
-                                <span>
-                                    Ajukan Pinjam
-                                </span>
-
+                                Ajukan Pinjam
                             </a>
-
                         </div>
 
                     </div>
 
                 </div>
 
-            </div>
+            @empty
 
-        @empty
+                {{-- kosong --}}
+                <div class="col-12">
 
-            {{-- =================================================
-                 EMPTY STATE
-            ================================================== --}}
+                    <div class="pj-empty">
 
-            <div class="col-12">
-
-                <div class="alat-empty text-center">
-
-                    <div class="py-3">
-
-                        <div class="display-4 text-success opacity-50 mb-3">
-
+                        <div class="pj-ico" aria-hidden="true">
                             <i class="bi bi-search"></i>
-
                         </div>
 
-                        <h5 class="fw-bold text-body mb-2">
+                        <h2>Peralatan Tidak Ditemukan</h2>
 
-                            Peralatan Tidak Ditemukan
-
-                        </h5>
-
-                        <p class="text-secondary small mb-4">
-
+                        <p>
                             Maaf, alat yang kamu cari dengan kata kunci
-
-                            <strong>
-                                "{{ request('q') }}"
-                            </strong>
-
+                            <strong>"{{ request('q') }}"</strong>
                             tidak tersedia.
-
                         </p>
 
-                        <a
-                            href="{{ route('peminjam.alat') }}"
-                            class="btn btn-outline-success rounded-pill px-4 fw-semibold"
-                        >
-
-                            <i class="bi bi-grid me-1"></i>
-
+                        <a href="{{ route('peminjam.alat') }}" class="pj-btn line">
+                            <i class="bi bi-grid"></i>
                             Lihat Semua Alat
-
                         </a>
 
                     </div>
 
                 </div>
 
-            </div>
+            @endforelse
 
-        @endforelse
+        </div>
 
     </div>
-
 </div>
 
-</div>
 @endsection
