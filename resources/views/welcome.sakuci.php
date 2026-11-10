@@ -497,6 +497,28 @@
                     </div>
                 </div>
 
+                <div class="col">
+                    <div class="pj-tag">
+                        <div class="emo">🏀</div>
+                        <h3>Alat Olahraga</h3>
+                        <p>
+                            Berbagai perlengkapan dan fasilitas pendukung
+                            kegiatan olahraga serta latihan fisik.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="pj-tag">
+                        <div class="emo">🧹</div>
+                        <h3>Alat Kebersihan</h3>
+                        <p>
+                            Perlengkapan untuk menjaga kebersihan lingkungan
+                            serta fasilitas kegiatan bersama.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -643,7 +665,6 @@
         var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (reduce || !('IntersectionObserver' in window)) return;
 
-        // kelompok elemen yang dimunculkan, dan apakah dibuat bergiliran
         var groups = [
             ['.pj-slip', false],
             ['.pj-sec > .pj-h2', false],
